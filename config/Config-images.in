@@ -150,7 +150,7 @@ menu "Target Images"
 			int "Block size (in KiB)"
 			depends on TARGET_ROOTFS_SQUASHFS
 			default 64 if LOW_MEMORY_FOOTPRINT
-			default 1024
+			default 512
 
 	menuconfig TARGET_ROOTFS_UBIFS
 		bool "ubifs"
@@ -267,7 +267,7 @@ menu "Target Images"
 
 	config TARGET_ROOTFS_PARTSIZE
 		int "Root filesystem partition size (in MB)"
-		depends on GRUB_IMAGES || TARGET_ROOTFS_EXT4FS || TARGET_rb532 || TARGET_mvebu || TARGET_uml
+		depends on GRUB_IMAGES || USES_ROOTFS_PART || TARGET_ROOTFS_EXT4FS || TARGET_mvebu || TARGET_rb532 || TARGET_sunxi || TARGET_uml
 		default 90
 		help
 		  Select the root filesystem partition size.
